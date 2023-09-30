@@ -22,26 +22,27 @@ struct ContentView: View {
         
         TabView(selection: $currentTab) {
             TodayView()
+                .navigationBarTitle("Today")
                 .tabItem {
                     Image(systemName: "calendar.day.timeline.trailing")
                     Text("Today")
                 }
                 .tag(Tabs.today)
-                .navigationTitle("Today")
             
             
             HistoryView()
+                .navigationBarTitle("History")
                 .tabItem {
                     Image(systemName: "calendar")
                     Text("History")
                 }
                 .tag(Tabs.historical)
-                .navigationTitle("Historical")
-                .toolbarBackground(.automatic, for: .tabBar)
-                .toolbarBackground(.visible, for: .navigationBar)
+            //                .toolbarBackground(.automatic, for: .tabBar)
+            //                .toolbarBackground(.visible, for: .navigationBar)
             
         }
-
+        
+        
     }
     
 }

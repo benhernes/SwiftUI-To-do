@@ -33,7 +33,7 @@ struct HistoricalTaskItemView: View {
                 }
             }
             .foregroundStyle(.green.opacity(0.3))
-            .onLongPressGesture {
+            .onTapGesture {
                 vibrateStrong()
                 isShowingDeleteAlert.toggle()
             }

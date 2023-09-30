@@ -100,6 +100,7 @@ struct TodayView: View {
                         .padding()
                 }
             }
+            .navigationTitle("Today")
             .sheet(isPresented: $isAddEditTask) {
                 NavigationStack {
                     NewTaskView(isCreate: true, task: nil)
@@ -122,6 +123,7 @@ struct TodayView: View {
                 .environment(\.colorScheme, .light)
             }
         }
+        
         
         
     }
