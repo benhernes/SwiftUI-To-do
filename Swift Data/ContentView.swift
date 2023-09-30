@@ -47,7 +47,7 @@ struct ContentView: View {
 
         NavigationStack {
             
-            Text("what's up bitches")
+            Text("what's up mfs")
                         
             TabView(selection: $currentTab) {
                 
