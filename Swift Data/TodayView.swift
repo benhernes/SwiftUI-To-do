@@ -12,6 +12,8 @@ struct TodayView: View {
     @Environment(\.modelContext) private var taskModelContext
     @State private var isAddEditTask = false
     
+    @Query() private var allTasks: [TaskItem]
+    
     @Query(
         filter: #Predicate<TaskItem>{ !$0.isCompleted && $0.isA},
         sort: [.init(\TaskItem.taskName)],
@@ -38,6 +40,13 @@ struct TodayView: View {
         NavigationStack {
             
             ZStack(alignment: .bottomTrailing) {
+                
+                if allTasks.isEmpty {
+                    ContentUnavailableView("No tasks",
+                                           systemImage: "list.bullet.rectangle.portrait",
+                                           description: Text("Add a task to get started"))
+                }
+                
                 
                 List {
                     // MARK: Today A

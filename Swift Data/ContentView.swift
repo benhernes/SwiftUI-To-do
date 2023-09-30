@@ -12,6 +12,7 @@ import Foundation
 enum Tabs: String {
     case today = "Today"
     case historical = "Historical"
+    case habits = "Habits"
 }
 
 struct ContentView: View {
@@ -22,7 +23,6 @@ struct ContentView: View {
         
         TabView(selection: $currentTab) {
             TodayView()
-                .navigationBarTitle("Today")
                 .tabItem {
                     Image(systemName: "calendar.day.timeline.trailing")
                     Text("Today")
@@ -31,7 +31,6 @@ struct ContentView: View {
             
             
             HistoryView()
-                .navigationBarTitle("History")
                 .tabItem {
                     Image(systemName: "calendar")
                     Text("History")
@@ -39,9 +38,16 @@ struct ContentView: View {
                 .tag(Tabs.historical)
             //                .toolbarBackground(.automatic, for: .tabBar)
             //                .toolbarBackground(.visible, for: .navigationBar)
+         
+            HabitView()
+                .tabItem {
+                    Image(systemName: "gearshape")
+                    Text("Habits")
+                }
+                .badge(1)
+                .tag(Tabs.habits)
             
         }
-        
         
     }
     
