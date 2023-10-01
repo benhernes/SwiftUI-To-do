@@ -11,6 +11,7 @@ import SwiftData
 struct TodayView: View {
     @Environment(\.modelContext) private var taskModelContext
     @State private var isAddEditTask = false
+    @State private var isAnimate = false
     
     @Query() private var allTasks: [TaskItem]
     
@@ -99,13 +100,15 @@ struct TodayView: View {
                     addItem()
                 } label: {
                     Image(systemName: "plus")
+                        .bold()
                         .font(.title)
                         .foregroundStyle(.white)
                         .padding()
                         .frame(width: 65, height: 65)
+                        .rotationEffect(Angle(degrees: isAnimate ? 180 : 0))
                         .background(Color.blue.gradient)
                         .clipShape(Circle())
-                        .shadow(radius: 6)
+                        .shadow(color: .gray, radius: 6)
                         .padding()
                 }
             }
