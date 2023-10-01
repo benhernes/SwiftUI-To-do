@@ -108,7 +108,7 @@ struct TodayView: View {
                         .rotationEffect(Angle(degrees: isAnimate ? 180 : 0))
                         .background(Color.blue.gradient)
                         .clipShape(Circle())
-                        .shadow(color: .gray, radius: 6)
+                        .shadow(radius: 6)
                         .padding()
                 }
             }
