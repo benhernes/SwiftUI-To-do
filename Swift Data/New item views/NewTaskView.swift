@@ -100,7 +100,7 @@ struct NewTaskView: View {
     
     func addItem(taskName: String) {
         // Create item
-        let taskItem = TaskItem(taskName: taskName, isA: isA, date: Date())
+        let taskItem = TaskItem(taskName: taskName, isA: isA, date: Date(), habit: nil)
         
         // Add item to data context
         taskModelContext.insert(taskItem)

@@ -18,7 +18,10 @@ struct Swift_DataApp: App {
             ContentView()
                 .environment(\.colorScheme, .light)
         }
-        .modelContainer(for: TaskItem.self)
+        .modelContainer(for: [
+                            TaskItem.self,
+                             HabitItem.self
+        ])
 
     }
 }

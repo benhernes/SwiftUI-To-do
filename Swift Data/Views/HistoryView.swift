@@ -56,14 +56,16 @@ struct HistoryView: View {
                 
                 
                 List {
-                    VStack(alignment: .leading) {
-                        Text("This list shows all previously completed tasks. Tap the plus icon to add a copy to today's list")
-                        Divider()
-                        Text("Tap anywhere on an item to delete from history")
-                    }
-                    .font(.footnote)
-                    .foregroundStyle(.gray)
-                    .italic()
+                    Text("This list shows all previously completed tasks. Tap the plus icon to add a copy to today's list")
+                        .font(.footnote)
+                        .foregroundStyle(.gray)
+                        .italic()
+                    
+                    Text("Tap anywhere on an item to delete from history")
+                        .font(.footnote)
+                        .foregroundStyle(.gray)
+                        .italic()
+
                     
                     ForEach(groupedTasks.keys.sorted(by: >), id: \.self) { key in
                         Section(header: Text(key)) {
@@ -75,6 +77,7 @@ struct HistoryView: View {
                     
                     Button {
                         // delete all
+                        vibrateStrong()
                         isShowingDeleteAlert.toggle()
                     } label: {
                         Text("Delete all")
@@ -86,12 +89,14 @@ struct HistoryView: View {
                 .alert("Are you sure you want to delete all tasks? This cannot be undone", isPresented: $isShowingDeleteAlert) {
                     Button {
                         // action
+                        vibrate()
                     } label: {
                         Text("No, go back")
                     }
                     
                     Button {
                         // action
+                        vibrateDouble()
                         for task in tasks {
                             deleteTask(task)
                         }
@@ -114,6 +119,26 @@ struct HistoryView: View {
     
     func deleteTask (_ task: TaskItem) {
         taskModelContext.delete(task)
+    }
+    
+    
+    // MARK: System feedback
+    func vibrate() {
+        let generator = UIImpactFeedbackGenerator(style: .light)
+        generator.impactOccurred()
+    }
+    
+    func vibrateStrong() {
+        let generator = UIImpactFeedbackGenerator(style: .heavy)
+        generator.impactOccurred()
+    }
+    
+    func vibrateDouble() {
+        let generator = UIImpactFeedbackGenerator(style: .heavy)
+        generator.impactOccurred(intensity: 100)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            generator.impactOccurred(intensity: 10)
+        }
     }
 }
 

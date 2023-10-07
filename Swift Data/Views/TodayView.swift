@@ -12,16 +12,21 @@ struct TodayView: View {
     @Environment(\.modelContext) private var taskModelContext
     @State private var isAddEditTask = false
     @State private var isAnimate = false
+    @State var todayTaskNames: [String] = [""]
     
     @Query() private var allTasks: [TaskItem]
-    
+        
     @Query(
-        filter: #Predicate<TaskItem>{ !$0.isCompleted && $0.isA},
+        filter: #Predicate<HabitItem>{ $0.dailyReminder}
+        ) private var dailyReminderHabits: [HabitItem]
+
+    @Query(
+        filter: #Predicate<TaskItem>{ !$0.isCompleted && $0.isA },
         sort: [.init(\TaskItem.taskName)],
         animation: .bouncy) private var sortedOpenTasksA: [TaskItem]
     
     @Query(
-        filter: #Predicate<TaskItem>{ !$0.isCompleted && !$0.isA},
+        filter: #Predicate<TaskItem>{ !$0.isCompleted && !$0.isA },
         sort: [.init(\TaskItem.taskName)],
         animation: .bouncy) private var sortedOpenTasksB: [TaskItem]
     
@@ -37,6 +42,7 @@ struct TodayView: View {
         @State var filteredSortedClosedTasks: [TaskItem] = sortedClosedTasks.filter {
             Calendar.current.isDateInToday($0.date!)
         }
+        
         
         NavigationStack {
             
@@ -54,7 +60,8 @@ struct TodayView: View {
                     Section("Priority A") {
                         ForEach(sortedOpenTasksA) { task in
                             NavigationLink {
-                                NewTaskView(isCreate: false, task: task)
+                                //NewTaskView(isCreate: false, task: task)
+                                TaskEditView(task: task)
                                     .navigationTitle("Edit task")
                                     .navigationBarTitleDisplayMode(.inline)
                             } label: {
@@ -133,6 +140,24 @@ struct TodayView: View {
                 }
                 .presentationDetents([.fraction(0.75)])
                 .environment(\.colorScheme, .light)
+            }
+            .onAppear {
+                for task in sortedOpenTasksA {
+                    todayTaskNames.append(task.taskName)
+                }
+                for task in sortedOpenTasksB {
+                    todayTaskNames.append(task.taskName)
+                }
+                for task in filteredSortedClosedTasks {
+                    todayTaskNames.append(task.taskName)
+                }
+                
+                for habit in dailyReminderHabits {
+                    if !todayTaskNames.contains("Make progress on \(habit.name)") {
+                        let taskItem = TaskItem(taskName: "Make progress on \(habit.name)", isA: true, date: Date(), habit: habit)
+                        taskModelContext.insert(taskItem)
+                    }
+                }
             }
         }
         

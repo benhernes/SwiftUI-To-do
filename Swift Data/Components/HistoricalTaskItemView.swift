@@ -86,7 +86,7 @@ struct HistoricalTaskItemView: View {
     }
     
     func duplicateItem(task: TaskItem) {
-        let newTaskItem = TaskItem(taskName: task.taskName, isA: task.isA, date: Date())
+        let newTaskItem = TaskItem(taskName: task.taskName, isA: task.isA, date: Date(), habit: nil)
         
         taskModelContext.insert(newTaskItem)
     }

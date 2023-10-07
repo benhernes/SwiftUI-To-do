@@ -17,12 +17,14 @@ class TaskItem: Identifiable {
     var isCompleted: Bool
     var isA: Bool
     var date: Date?
+    var habit: HabitItem?
     
-    init(taskName: String, isCompleted: Bool = false, isA: Bool, date: Date?) {
+    init(taskName: String, isCompleted: Bool = false, isA: Bool, date: Date?, habit: HabitItem?) {
         self.id = UUID().uuidString
         self.taskName = taskName
         self.isCompleted = isCompleted
         self.isA = isA
         self.date = date ?? Date()
+        self.habit = habit ?? nil
     }
 }

@@ -42,9 +42,9 @@ struct ContentView: View {
             HabitView()
                 .tabItem {
                     Image(systemName: "gearshape")
-                    Text("Habits")
+                    Text("Projects")
                 }
-                .badge(1)
+                .badge(0)
                 .tag(Tabs.habits)
             
         }
