@@ -91,7 +91,7 @@ struct HistoryView: View {
                         // action
                         vibrate()
                     } label: {
-                        Text("No, go back")
+                        Text("Cancel")
                     }
                     
                     Button {
@@ -101,7 +101,7 @@ struct HistoryView: View {
                             deleteTask(task)
                         }
                     } label: {
-                        Text("Yes, delete all my tasks")
+                        Text("Delete all")
                     }
                 }
             }

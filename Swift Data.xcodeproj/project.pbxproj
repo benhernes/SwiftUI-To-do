@@ -84,8 +84,8 @@
 		25A0C36A2AB1594E00BABE44 /* Swift Data */ = {
 			isa = PBXGroup;
 			children = (
-				25B574812AD1E7E9001D1169 /* Components */,
 				25B5747F2AD1E7BE001D1169 /* Data items */,
+				25B574812AD1E7E9001D1169 /* Components */,
 				25B574802AD1E7C6001D1169 /* Views */,
 				256D77E02AD1EE490000719C /* New item views */,
 				25A0C36B2AB1594E00BABE44 /* Swift_DataApp.swift */,
@@ -126,8 +126,8 @@
 		25B574812AD1E7E9001D1169 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				257BF6632AC0A2EB007C02D9 /* HistoricalTaskItemView.swift */,
 				258E2B682ABF69BB00312594 /* TaskItemView.swift */,
+				257BF6632AC0A2EB007C02D9 /* HistoricalTaskItemView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";

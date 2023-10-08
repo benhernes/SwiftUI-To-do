@@ -40,7 +40,7 @@ struct TaskEditView: View {
             }
                 
                 if let notes = task.habit?.notes {
-                    Section("Associated project:") {
+                    Section("Associated project") {
                         Text(notes)
                         NavigationLink {
                             HabitEditView(habit: task.habit!)

@@ -12,6 +12,7 @@ struct HabitView: View {
     @State private var isAnimate = false
     @State private var rotationDegrees: Double = 0
     @State private var isAddEditHabit = false
+    @State private var isShowingDeleteAlert = false
     
     @Environment(\.modelContext) private var habitModelContext
     @Query() private var allHabits: [HabitItem]
@@ -32,7 +33,7 @@ struct HabitView: View {
                     .foregroundStyle(.gray)
                     .italic()
                     
-                    Text("If you select 'Daily reminder' when creating a habit, the system will automatically create a daily task reminding you to make progress toward this project")
+                    Text("If you select 'Daily reminder' when creating, the system will automatically create a daily task reminding you to make progress toward this project")
                         .font(.footnote)
                         .foregroundStyle(.gray)
                         .italic()
@@ -46,11 +47,15 @@ struct HabitView: View {
                             Text(habit.name)
                         }
                     }
+                    .onDelete { indexes in
+                        for index in indexes {
+                            deleteHabit(habit: allHabits[index])
+                        }
+                    }
                     
                     Button {
-                        for habit in allHabits {
-                            deleteHabit(habit: habit)
-                        }
+                        vibrateStrong()
+                        isShowingDeleteAlert.toggle()
                     } label: {
                         Text("Delete all")
                             .foregroundStyle(.red)
@@ -69,7 +74,7 @@ struct HabitView: View {
                         .foregroundStyle(.white)
                         .padding()
                         .frame(width: 65, height: 65)
-                        .background(Color.blue.gradient)
+                        .background(Color.black.gradient)
                         .rotationEffect(.degrees(rotationDegrees))
                         .clipShape(Circle())
                         .shadow(radius: 6)
@@ -101,6 +106,24 @@ struct HabitView: View {
             .presentationDetents([.fraction(0.75)])
             .environment(\.colorScheme, .light)
         }
+        
+        .alert("Are you sure you want to delete all projects? This cannot be undone", isPresented: $isShowingDeleteAlert) {
+            Button {
+                // do nothing
+            } label: {
+                Text("Cancel")
+            }
+            
+            Button {
+                for habit in allHabits {
+                    deleteHabit(habit: habit)
+                }
+            } label: {
+                Text("Delete all")
+            }
+        }
+        
+        
     }
     
     func addHabit() {

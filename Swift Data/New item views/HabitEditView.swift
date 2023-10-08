@@ -26,7 +26,7 @@ struct HabitEditView: View {
                 
                 Section("Notes") {
                     TextEditor(text: $habit.notes)
-                        .frame(minHeight: 80)
+                        .frame(minHeight: 120)
 
                 }
 

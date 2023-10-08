@@ -34,7 +34,7 @@ struct NewHabitView: View {
                 
                 Section("Notes") {
                     TextEditor(text: $habitNotes)
-                        .frame(minHeight: 80)
+                        .frame(minHeight: 120)
                 }
 
             }

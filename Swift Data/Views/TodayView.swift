@@ -79,7 +79,7 @@ struct TodayView: View {
                     Section("Priority B") {
                         ForEach(sortedOpenTasksB) { task in
                             NavigationLink {
-                                NewTaskView(isCreate: false, task: task)
+                                TaskEditView(task: task)
                                     .navigationTitle("Edit task")
                                     .navigationBarTitleDisplayMode(.inline)
                             } label: {
@@ -96,7 +96,11 @@ struct TodayView: View {
                     
                     Section("Completed today") {
                         ForEach(filteredSortedClosedTasks) { task in
-                            TaskItemView(task: task)
+                            NavigationLink {
+                                TaskEditView(task: task)
+                            } label: {
+                                TaskItemView(task: task)
+                            }
                         }
                     }
                     

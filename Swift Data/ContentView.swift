@@ -18,6 +18,7 @@ enum Tabs: String {
 struct ContentView: View {
     
     @State private var currentTab: Tabs = .today
+
     
     var body: some View {
         
@@ -28,6 +29,7 @@ struct ContentView: View {
                     Text("Today")
                 }
                 .tag(Tabs.today)
+
             
             
             HistoryView()
