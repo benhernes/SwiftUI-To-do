@@ -90,6 +90,7 @@
 				256D77E02AD1EE490000719C /* New item views */,
 				25A0C36B2AB1594E00BABE44 /* Swift_DataApp.swift */,
 				25A0C36D2AB1594E00BABE44 /* ContentView.swift */,
+				25A0C36F2AB1595100BABE44 /* Assets.xcassets */,
 				25A0C3712AB1595100BABE44 /* Preview Content */,
 			);
 			path = "Swift Data";
@@ -98,7 +99,6 @@
 		25A0C3712AB1595100BABE44 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				25A0C36F2AB1595100BABE44 /* Assets.xcassets */,
 				25A0C3722AB1595100BABE44 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -372,7 +372,7 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -408,7 +408,7 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

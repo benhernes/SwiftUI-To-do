@@ -41,7 +41,7 @@ struct HabitView: View {
                     ForEach(allHabits) { habit in
                         NavigationLink {
                             HabitEditView(habit: habit)
-                                .navigationTitle("Edit habit")
+                                .navigationTitle("Edit project")
                                 .navigationBarTitleDisplayMode(.inline)
                         } label: {
                             Text(habit.name)
