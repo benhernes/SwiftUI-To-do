@@ -1,6 +1,9 @@
 ## To-do app project
 ### Overiew
-- xx
+- 1-week project to learn data persistence
+  - Custom classes
+  - SwiftData (e.g., defining model, CRUD operations)
+  - basic UI and animation
 
 ### Content
 #### Home - empty
