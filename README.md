@@ -1,4 +1,4 @@
-## To-do app project
+## To-do app project | 12.2023
 ### Overiew
 - 1-week project to learn data persistence
   - Custom classes
