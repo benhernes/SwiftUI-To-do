@@ -29,6 +29,9 @@ struct ContentView: View {
                     Text("Today")
                 }
                 .tag(Tabs.today)
+                .onAppear {
+                    vibrate()
+                }
 
             
             
@@ -38,8 +41,9 @@ struct ContentView: View {
                     Text("History")
                 }
                 .tag(Tabs.historical)
-            //                .toolbarBackground(.automatic, for: .tabBar)
-            //                .toolbarBackground(.visible, for: .navigationBar)
+                .onAppear {
+                    vibrate()
+                }
          
             HabitView()
                 .tabItem {
@@ -48,9 +52,31 @@ struct ContentView: View {
                 }
                 .badge(0)
                 .tag(Tabs.habits)
+                .onAppear {
+                    vibrate()
+                }
             
         }
         
+    }
+    
+    // MARK: System feedback
+    func vibrate() {
+        let generator = UIImpactFeedbackGenerator(style: .light)
+        generator.impactOccurred()
+    }
+    
+    func vibrateStrong() {
+        let generator = UIImpactFeedbackGenerator(style: .heavy)
+        generator.impactOccurred()
+    }
+    
+    func vibrateDouble() {
+        let generator = UIImpactFeedbackGenerator(style: .heavy)
+        generator.impactOccurred(intensity: 100)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            generator.impactOccurred(intensity: 10)
+        }
     }
     
 }
