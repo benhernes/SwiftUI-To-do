@@ -13,6 +13,7 @@ enum Tabs: String {
     case today = "Today"
     case historical = "Historical"
     case habits = "Habits"
+    case about = "About"
 }
 
 struct ContentView: View {
@@ -33,8 +34,6 @@ struct ContentView: View {
                     vibrate()
                 }
 
-            
-            
             HistoryView()
                 .tabItem {
                     Image(systemName: "calendar")
@@ -52,6 +51,17 @@ struct ContentView: View {
                 }
                 .badge(0)
                 .tag(Tabs.habits)
+                .onAppear {
+                    vibrate()
+                }
+            
+            SettingsView()
+                .tabItem {
+                    Image(systemName: "info.circle.fill")
+                    Text("About")
+                }
+                .badge(0)
+                .tag(Tabs.about)
                 .onAppear {
                     vibrate()
                 }

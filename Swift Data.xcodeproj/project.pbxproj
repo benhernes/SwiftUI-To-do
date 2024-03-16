@@ -21,6 +21,7 @@
 		25A0C3702AB1595100BABE44 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25A0C36F2AB1595100BABE44 /* Assets.xcassets */; };
 		25A0C3732AB1595100BABE44 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25A0C3722AB1595100BABE44 /* Preview Assets.xcassets */; };
 		25A0C37A2AB1597B00BABE44 /* TaskItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A0C3792AB1597B00BABE44 /* TaskItem.swift */; };
+		25AC79492BA6269D00EDDFE0 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AC79482BA6269D00EDDFE0 /* SettingsView.swift */; };
 		25B5747E2AD1E7B4001D1169 /* HabitItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B5747D2AD1E7B4001D1169 /* HabitItem.swift */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +41,7 @@
 		25A0C36F2AB1595100BABE44 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		25A0C3722AB1595100BABE44 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		25A0C3792AB1597B00BABE44 /* TaskItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskItem.swift; sourceTree = "<group>"; };
+		25AC79482BA6269D00EDDFE0 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		25B5747D2AD1E7B4001D1169 /* HabitItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -119,6 +121,7 @@
 				253B946E2AC8AA3200DF1B78 /* TodayView.swift */,
 				2568EAE32AB418D70097B8BF /* HistoryView.swift */,
 				253B94702AC8B38B00DF1B78 /* HabitView.swift */,
+				25AC79482BA6269D00EDDFE0 /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 				25B5747E2AD1E7B4001D1169 /* HabitItem.swift in Sources */,
 				253B94712AC8B38B00DF1B78 /* HabitView.swift in Sources */,
 				25A0C36C2AB1594E00BABE44 /* Swift_DataApp.swift in Sources */,
+				25AC79492BA6269D00EDDFE0 /* SettingsView.swift in Sources */,
 				25A0C37A2AB1597B00BABE44 /* TaskItem.swift in Sources */,
 				256D77E22AD1FD1A0000719C /* HabitEditView.swift in Sources */,
 				257BF6642AC0A2EB007C02D9 /* HistoricalTaskItemView.swift in Sources */,
